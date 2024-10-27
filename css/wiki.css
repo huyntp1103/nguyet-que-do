@@ -1,13 +1,13 @@
 .red-border-table,
 .red-border-table th,
 .red-border-table td {
-  border-color: var(--red) !important; /* Màu đỏ cho border */
+  border-color: var(--red) !important;
 }
 
 .orange-border-table,
 .orange-border-table th,
 .orange-border-table td {
-  border-color: var(--orange) !important; /* Màu cam cho border */
+  border-color: var(--orange) !important;
 }
 
 .contestant p {
@@ -15,13 +15,13 @@
 }
 
 .contestant-winner {
-  background-color: var(--yellow);
-  color: var(--red);
+  background-color: var(--yellow) !important;
+  color: var(--red) !important;
   font-weight: bold;
 }
 
 .contestant-second-winner {
-  color: var(--orange);
+  color: var(--orange) !important;
   font-weight: bold;
 }
 
