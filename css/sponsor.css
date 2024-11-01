@@ -3,10 +3,10 @@
 	padding-bottom: 2rem;
 }
 
-#sponsor-wrapped h1 {
+#sponsor-wrapped .sponsor-introdution {
 	color: white;
 	font-size: 1.6rem;
-	/* font-weight: bold; */
+	margin: 0;
 }
 
 #sponsor .sponsor-logo {
