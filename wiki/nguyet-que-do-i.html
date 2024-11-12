@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nguyệt Quế Đỏ I</title>
+  <title>Nguyệt Quế Đỏ I - Phạm Thành Đạt</title>
   <link rel="icon" href="../images/themes/Logo-Que-II.png">
   <meta name="google-adsense-account" content="ca-pub-7685319641265970">
   <meta name="description" content="Nguyệt Quế Đỏ là chương trình tuyển chọn học sinh đại diện cho trường THPT chuyên Quốc Học – Huế tham dự chương trình Đường lên đỉnh Olympia." />
@@ -31,6 +31,16 @@
       border-radius: 10%;
     }
   </style>
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'F12' || 
+          (event.ctrlKey && event.shiftKey && event.key === 'I') || 
+          (event.ctrlKey && event.key === 'U')) {
+        event.preventDefault();
+      }
+    });
+  </script>
 </head>
 <body>
   <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
