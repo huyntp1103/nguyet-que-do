@@ -15,7 +15,6 @@
 	font-style: italic;
 	color: var(--yellow);
 	-webkit-text-stroke: 2px var(--red);
-	text-stroke: 2px var(--red);
 }
 
 #navbar .navbar-brand a {
@@ -42,6 +41,10 @@
 	font-weight: bold;
 	color: var(--gray);
 }
+
+#navbar .nav-item.dropdown:hover .dropdown-menu {
+	display: block;
+  }
 
 #navbar #navbarNav .nav-item.dropdown ul .nav-link {
 	font-size: 1rem;
