@@ -76,6 +76,9 @@
     // Load navbar
     loadComponent('navbar-placeholder', 'components/navbar.html', function() {
       highlightCurrentPage();
+      // Trigger custom event when navbar is loaded
+      var event = new CustomEvent('navbarLoaded');
+      document.dispatchEvent(event);
     });
 
     // Load footer
