@@ -25,6 +25,10 @@
   font-weight: bold;
 }
 
+.final {
+  padding-bottom: 2rem;
+}
+
 .final > div p {
   font-size: 0.8rem;
 }

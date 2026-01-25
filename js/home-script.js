@@ -1,7 +1,6 @@
 $(document).ready(function () {
   // Navbar
   let navHeight = $('#navbar').outerHeight(true);
-  $('#intro').css('padding-top', navHeight);
 
   $('#navbar .navbar-nav .nav-item .nav-link:first').addClass('active');
   $('#navbar .navbar-nav .nav-item .nav-link').click(function (event) {

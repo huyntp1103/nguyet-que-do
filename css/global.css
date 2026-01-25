@@ -53,6 +53,9 @@ html {
 body {
 	/* background-color: var(--cream-white); */
     background-image: url('../images/themes/Background-white.jpg');
+	/* Add padding to prevent content from being hidden under fixed navbar */
+	/* Navbar height: 4rem logo + Bootstrap navbar padding ≈ 5rem */
+	padding-top: 5rem;
 }
 
 /* Large tablet */
