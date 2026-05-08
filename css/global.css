@@ -1,21 +1,85 @@
+/* =========================================================================
+   global.css — Cinematic Ceremonial design system
+   See .claude/DESIGN.md for the source of truth.
+   ========================================================================= */
+
 :root {
+    /* Brand palette (kept) */
     --cream-white: #ebe8e1;
-	--cream-orange: #d6cdb0;
-	--dark-orange: #b85d36;
+    --cream-orange: #d6cdb0;
+    --dark-orange: #b85d36;
     --orange: #e34a25;
-	--dark-red: #af2d03;
+    --dark-red: #af2d03;
     --red: #bb2126;
-	--dark-yellow: #ee9e2e;
+    --dark-yellow: #ee9e2e;
     --yellow: #fbb917;
     --dark-brown: #913f2d;
     --gray: #7a7a7a;
+
+    /* Cinematic extensions */
+    --deep-red: #4a1010;
+    --ink: #15110d;
+    --ink-soft: #3a342e;
+    --ink-mute: #6e655c;
+    --paper: #ffffff;
+    --surface: var(--cream-white);
+    --on-dark: rgba(255, 255, 255, 0.92);
+    --on-dark-mute: rgba(255, 255, 255, 0.7);
+
+    --border: rgba(21, 17, 13, 0.08);
+    --border-strong: rgba(21, 17, 13, 0.16);
+    --border-on-dark: rgba(255, 255, 255, 0.15);
+
+    /* Type scale */
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-md: 1.125rem;
+    --fs-lg: 1.25rem;
+    --fs-xl: 1.5rem;
+    --fs-2xl: 2rem;
+    --fs-3xl: 2.75rem;
+    --fs-4xl: 3.75rem;
+    --fs-display: clamp(2.5rem, 6vw, 5.5rem);
+
+    /* Spacing */
+    --sp-1: 0.25rem;
+    --sp-2: 0.5rem;
+    --sp-3: 0.75rem;
+    --sp-4: 1rem;
+    --sp-5: 1.5rem;
+    --sp-6: 2rem;
+    --sp-7: 3rem;
+    --sp-8: 5rem;
+    --sp-9: 8rem;
+
+    /* Radius */
+    --r-sm: 6px;
+    --r-md: 12px;
+    --r-lg: 16px;
+    --r-pill: 999px;
+
+    /* Shadows */
+    --sh-1: 0 1px 2px rgba(0, 0, 0, 0.06);
+    --sh-2: 0 8px 24px -8px rgba(0, 0, 0, 0.18);
+    --sh-3: 0 30px 60px -20px rgba(0, 0, 0, 0.25);
+
+    /* Motion */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --t-fast: 150ms;
+    --t-base: 250ms;
+    --t-slow: 400ms;
 }
+
+/* =========================================================================
+   Fonts (unchanged — same SVN Gotham declarations as before)
+   ========================================================================= */
 
 @font-face {
     font-family: 'SVN Gotham';
     src: url('../fonts/SVN-Gotham-Bold/SVN-Gotham-Bold.otf');
     src: url('../fonts/SVN-Gotham-Bold/SVN-Gotham-Bold.otf') format('embedded-opentype'),
-		 url('../fonts/SVN-Gotham-Bold/SVN-Gotham-Bold.otf') format('woff2'),
+         url('../fonts/SVN-Gotham-Bold/SVN-Gotham-Bold.otf') format('woff2'),
          url('../fonts/SVN-Gotham-Bold/SVN-Gotham-Bold.otf') format('woff'),
          url('../fonts/SVN-Gotham-Bold/SVN-Gotham-Bold.otf') format('truetype'),
          url('../fonts/SVN-Gotham-Bold/SVN-Gotham-Bold.otf') format('opentype');
@@ -25,138 +89,161 @@
 
 @font-face {
     font-family: 'SVN Gotham';
-    src: url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf'); /* IE9 Compat Modes */
-    src: url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('woff'), /* Modern Browsers */
-         url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('opentype'); /* OpenType */
+    src: url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf');
+    src: url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('embedded-opentype'),
+         url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('woff2'),
+         url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('woff'),
+         url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('truetype'),
+         url('../fonts/SVN-Gotham-Book/SVN-Gotham-Book.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-	font-family: 'SVN Gotham', 'Helvetica', sans-serif;
+    font-family: 'SVN Gotham', 'Helvetica', sans-serif;
 }
 
 html {
-	font-size: 16px;
+    font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
-	/* background-color: var(--cream-white); */
+    background-color: var(--surface);
     background-image: url('../images/themes/Background-white.jpg');
-	/* Add padding to prevent content from being hidden under fixed navbar */
-	/* Navbar height: 4rem logo + Bootstrap navbar padding ≈ 5rem */
-	padding-top: 5rem;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Fixed-navbar offset for non-homepage pages.
+       Homepage adds .is-home via JS to remove this. */
+    padding-top: 5rem;
+
+    /* Prevents the full-bleed `width:100vw` trick on dark bands
+       from creating a horizontal scrollbar on Windows/Chrome. */
+    overflow-x: hidden;
 }
 
-/* Large tablet */
-@media screen and (max-width: 991.98px) {
-    html {
-		font-size: 16px;
-	}
+body.is-home {
+    padding-top: 0;
 }
 
-/* Small tablet */
-@media screen and (max-width: 767.98px) {
-    html {
-		font-size: 14px;
-	}
-}
+/* Responsive base type sizes (kept from original) */
+@media screen and (max-width: 991.98px) { html { font-size: 16px; } }
+@media screen and (max-width: 767.98px) { html { font-size: 14px; } }
+@media screen and (max-width: 575.98px) { html { font-size: 12px; } }
 
-/* Mobile */
-@media screen and (max-width: 575.98px) {
-    html {
-		font-size: 12px;
-	}
-}
+/* =========================================================================
+   Scroll-reveal entrance animations.
 
-/* Animation */
-.content-slide-up {
-	opacity: 0;
-    transform: translateY(5rem);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-.content-slide-up.slide-up {
-    opacity: 1;
-    transform: translateY(0);
-}
+   IMPORTANT: content is fully visible BY DEFAULT. The optional trigger
+   class (.slide-up etc.) plays a one-time entrance animation when the
+   IntersectionObserver fires. If the observer never fires (screenshot
+   tools, slow connections, JS disabled), content remains visible.
+   ========================================================================= */
 
-.content-slide-down {
-	opacity: 0;
-    transform: translateY(-5rem);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-.content-slide-down.slide-down {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+.content-slide-up,
+.content-slide-down,
+.content-slide-left,
 .content-slide-right {
-	opacity: 0;
-    transform: translateX(5rem);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-.content-slide-right.slide-right {
-    opacity: 1;
-    transform: translateX(0);
+    /* No off-screen initial state — content is always visible. */
 }
 
-.content-slide-left {
-	opacity: 0;
-    transform: translateX(-5rem);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+.content-slide-up.slide-up    { animation: nqdSlideUp    var(--t-slow) var(--ease-out) both; }
+.content-slide-down.slide-down { animation: nqdSlideDown  var(--t-slow) var(--ease-out) both; }
+.content-slide-left.slide-left { animation: nqdSlideLeft  var(--t-slow) var(--ease-out) both; }
+.content-slide-right.slide-right { animation: nqdSlideRight var(--t-slow) var(--ease-out) both; }
+
+@keyframes nqdSlideUp {
+    from { opacity: 0; transform: translateY(2rem); }
+    to   { opacity: 1; transform: translateY(0); }
 }
-.content-slide-left.slide-left {
-    opacity: 1;
-    transform: translateX(0);
+@keyframes nqdSlideDown {
+    from { opacity: 0; transform: translateY(-2rem); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes nqdSlideLeft {
+    from { opacity: 0; transform: translateX(-2rem); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes nqdSlideRight {
+    from { opacity: 0; transform: translateX(2rem); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
-.horizontal-line-yellow {
-	background-color: var(--yellow);
-	width: 50%;
-	height: 0.2rem;
-	margin: 1rem auto;
-}
+/* =========================================================================
+   Utility rules and section ornaments
+   ========================================================================= */
 
-.horizontal-line-red {
-	background-color: var(--red);
-	width: 50%;
-	height: 0.2rem;
-	margin: 1rem auto;
-}
-
+.horizontal-line-yellow,
+.horizontal-line-red,
 .horizontal-line-orange {
-	background-color: var(--orange);
-	width: 50%;
-	height: 0.2rem;
-	margin: 1rem auto;
+    width: 4rem;
+    height: 2px;
+    margin: var(--sp-4) auto var(--sp-5);
+    border: 0;
+    border-radius: 2px;
 }
+.horizontal-line-yellow  { background-color: var(--yellow); }
+.horizontal-line-red     { background-color: var(--red); }
+.horizontal-line-orange  { background-color: var(--orange); }
 
 .section-title {
-    font-size: 2rem;
+    font-size: var(--fs-3xl);
     font-weight: bold;
     color: var(--red);
     text-align: center;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
 .section-sub-title {
-    font-size: 1.6rem;
+    font-size: var(--fs-xl);
     font-weight: bold;
     color: var(--orange);
     text-align: center;
+    letter-spacing: -0.01em;
 }
 
 .stroke-title {
     color: var(--yellow);
-	-webkit-text-stroke: 1px var(--red);
-	text-stroke: 1px var(--red);
+    -webkit-text-stroke: 1px var(--red);
+    text-stroke: 1px var(--red);
+}
+
+/* =========================================================================
+   Focus & link defaults — visible focus for keyboard users
+   ========================================================================= */
+
+a, button, [role="button"], .nav-link {
+    transition: color var(--t-fast) var(--ease-out),
+                background-color var(--t-fast) var(--ease-out),
+                border-color var(--t-fast) var(--ease-out),
+                opacity var(--t-fast) var(--ease-out);
+}
+
+a:focus-visible,
+button:focus-visible,
+.nav-link:focus-visible {
+    outline: 2px solid var(--yellow);
+    outline-offset: 3px;
+    border-radius: var(--r-sm);
+}
+
+/* =========================================================================
+   Reduced-motion guard — respects user preference globally
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

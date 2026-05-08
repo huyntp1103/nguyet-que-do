@@ -7,13 +7,7 @@ $(document).ready(function () {
                 <div class="row d-flex flex-row align-items-center">
                   <div class="col-lg-3 mb-3">
                     <div class="img-box col-lg-12 col-md-6">
-                      <img
-                        style="
-                          border: 1px solid black;
-                          padding: 1rem;
-                          transform: rotate(45deg);
-                        "
-                        src="${testimonial.avatarUrl}" alt="${testimonial.company}" />
+                      <img src="${testimonial.avatarUrl}" alt="${testimonial.company}" />
                     </div>
                   </div>
                   <div class="col-lg-9">

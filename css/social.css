@@ -1,39 +1,51 @@
+/* =========================================================================
+   social.css — minimalist circular icons with brand color on hover
+   ========================================================================= */
+
+#social {
+    padding: 4rem 0 6rem;
+}
+
+#social .section-title { margin-bottom: 0.5rem; }
+
+#social .content-slide-up {
+    margin-top: 1.5rem;
+    color: var(--ink-mute);
+    font-size: var(--fs-sm);
+}
+
+.social-icons {
+    display: inline-flex;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+
 .social-icons a {
-	display: inline-block;
-	width: 3rem;
-	height: 3rem;
-	border-radius: 50%;
-	text-align: center;
-	line-height: 3rem;
-	margin-right: 0.6rem;
-	transition: background-color 0.3s ease;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 3rem;
+    display: inline-block;
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1.5px solid var(--border-strong);
+    transition: background-color var(--t-base) var(--ease-out),
+                color var(--t-base) var(--ease-out),
+                border-color var(--t-base) var(--ease-out),
+                transform var(--t-base) var(--ease-out);
 }
 
-.fa {
-	font-size: 1.5rem;
+.social-icons a:hover {
+    transform: translateY(-3px);
+    border-color: transparent;
+    color: white;
 }
 
-.fa-facebook {
-	background: #3B5998;
-	color: white;
-}
+.fa { font-size: 1.25rem; }
 
-.fa-linkedin {
-	background: #007bb5;
-	color: white;
-}
-
-.fa-youtube {
-	background: #bb0000;
-	color: white;
-}
-
-.fa-tumblr {
-	background: black;
-	color: white;
-}
-
-.fa-envelope {
-	background: #bb0000;
-	color: white;
-}
+.fa-facebook:hover  { background: #3b5998; }
+.fa-linkedin:hover  { background: #007bb5; }
+.fa-youtube:hover   { background: #c4302b; }
+.fa-tumblr:hover    { background: var(--ink); }
+.fa-envelope:hover  { background: var(--red); }

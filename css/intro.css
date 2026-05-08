@@ -1,42 +1,141 @@
-#intro .carousel-item img {
-    display: block;
-    width: 100%;
-    height: auto;
+/* =========================================================================
+   intro.css — full-bleed cinematic hero with Ken Burns + gradient overlay
+   See .claude/DESIGN.md §5.2.
+   ========================================================================= */
+
+#intro {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--ink);
 }
 
+#intro .carousel-inner,
+#intro .carousel-item {
+    height: 100%;
+    width: 100%;
+}
+
+/* Let Bootstrap's .slide transform handle the slide-in/out;
+   we only style the items themselves. */
 #intro .carousel-item {
     position: relative;
-    opacity: 0.6;
-    transition: opacity 0.4s ease-out;
-}
-
-#intro .carousel-item.active {
-    opacity: 1;
 }
 
 #intro .overlay {
     position: relative;
+    height: 100%;
+    width: 100%;
 }
 
+#intro .carousel-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    will-change: transform;
+}
+
+/* Ken Burns — runs continuously; only visible on the active slide */
+#intro .carousel-item.active img {
+    animation: nqd-kenburns 18s ease-in-out infinite alternate;
+}
+
+@keyframes nqd-kenburns {
+    from { transform: scale(1.05) translate(0, 0); }
+    to   { transform: scale(1.18) translate(-2%, -2%); }
+}
+
+/* Cinematic gradient overlay — vertical darkening + radial yellow bloom */
 #intro .overlay::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.45) 0%,
+            rgba(0, 0, 0, 0.10) 22%,
+            transparent 45%,
+            rgba(74, 16, 16, 0.55) 78%,
+            rgba(0, 0, 0, 0.85) 100%),
+        radial-gradient(ellipse at 80% 18%,
+            rgba(251, 185, 23, 0.18),
+            transparent 55%);
+    pointer-events: none;
 }
 
+/* Hero text — anchored bottom-left, cinematic display size */
 #intro .text {
-    width: 100%;
+    width: auto;
+    max-width: 56rem;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: auto;
+    left: 4rem;
+    right: 4rem;
+    bottom: 6rem;
+    transform: none;
+    text-align: left;
     color: white;
-    font-size: 3vw;
+    font-size: var(--fs-display);
     font-weight: bold;
-    text-align: center;
-    z-index: 1;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    z-index: 2;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Yellow accent rule above each hero headline */
+#intro .text::before {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 3px;
+    background: var(--yellow);
+    margin-bottom: 1.75rem;
+    box-shadow: 0 0 16px rgba(251, 185, 23, 0.6);
+    border-radius: 2px;
+}
+
+#intro .text br { display: block; }
+
+/* Scroll cue */
+#intro::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 1.75rem;
+    width: 1px;
+    height: 2.25rem;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6));
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: nqd-scroll-cue 2.4s ease-in-out infinite;
+}
+
+@keyframes nqd-scroll-cue {
+    0%   { opacity: 0; transform: translate(-50%, -0.4rem); }
+    50%  { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, 0.6rem); }
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    #intro .text {
+        left: 2rem;
+        right: 2rem;
+        bottom: 4rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #intro .text {
+        left: 1.25rem;
+        right: 1.25rem;
+        bottom: 3rem;
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+    }
+    #intro::after { display: none; }
 }

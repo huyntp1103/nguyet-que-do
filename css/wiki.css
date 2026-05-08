@@ -1,34 +1,227 @@
-.red-border-table,
-.red-border-table th,
-.red-border-table td {
-  border-color: var(--red) !important;
+/* =========================================================================
+   wiki.css — wiki overview + season pages
+   See .claude/DESIGN.md (cinematic palette, applied to long-form content).
+   ========================================================================= */
+
+/* Top-level page sections (.qualifying / .semifinal / .final and the wiki
+   overview) get a max-width and consistent vertical rhythm. */
+.container.qualifying,
+.container.semifinal,
+.container.final,
+#wiki {
+    max-width: 1100px;
+    padding: 3rem 1.5rem;
+}
+
+#wiki { padding-top: 4rem; }
+
+/* Section titles — keep red, more letter spacing on subtitles */
+.qualifying .section-title,
+.semifinal .section-title,
+.final .section-title,
+#wiki .section-title {
+    font-size: var(--fs-3xl);
+    font-weight: bold;
+    color: var(--red);
+    text-align: center;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.section-sub-title.text-left {
+    text-align: left;
+    font-size: var(--fs-xl);
+    font-weight: bold;
+    color: var(--orange);
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--yellow);
+    display: inline-block;
+}
+
+/* Body copy in wiki sections */
+.qualifying p,
+.semifinal p,
+.final p,
+#wiki p {
+    font-size: var(--fs-base);
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+}
+
+#wiki li {
+    line-height: 1.8;
+    margin-left: 1.25rem;
+    color: var(--ink-soft);
+}
+
+#wiki li a {
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--red);
+    transition: color var(--t-fast), border-color var(--t-fast);
+}
+#wiki li a:hover {
+    color: var(--dark-red);
+    border-bottom-color: var(--dark-red);
+}
+
+/* =========================================================================
+   Tables — cleaner, card-like, with subtle hover
+   ========================================================================= */
+
+.table-responsive-md {
+    margin: 1.5rem 0 2.5rem;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--sh-1);
+}
+
+.table.orange-border-table,
+.table.red-border-table {
+    margin-bottom: 0;
+    background-color: var(--paper);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table.orange-border-table thead,
+.table.red-border-table thead {
+    background: linear-gradient(180deg, var(--deep-red) 0%, var(--ink) 100%);
+    color: white;
+}
+
+.table.orange-border-table thead th,
+.table.red-border-table thead th {
+    border: none !important;
+    padding: 1rem 0.85rem;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    text-shadow: 0 0 12px rgba(251, 185, 23, 0.25);
+}
+
+.table.orange-border-table tbody td,
+.table.red-border-table tbody td {
+    padding: 0.95rem 0.85rem;
+    vertical-align: middle;
+    color: var(--ink-soft);
+    font-size: var(--fs-base);
+    line-height: 1.5;
+}
+
+.table.orange-border-table tbody tr,
+.table.red-border-table tbody tr {
+    transition: background-color var(--t-fast);
+}
+
+.table.orange-border-table tbody tr:nth-child(even),
+.table.red-border-table tbody tr:nth-child(even) {
+    background-color: rgba(251, 185, 23, 0.025);
 }
 
 .orange-border-table,
 .orange-border-table th,
 .orange-border-table td {
-  border-color: var(--orange) !important;
+    border-color: rgba(227, 74, 37, 0.18) !important;
 }
 
-.contestant p {
-  font-size: 0.8rem;
+.red-border-table,
+.red-border-table th,
+.red-border-table td {
+    border-color: rgba(187, 33, 38, 0.2) !important;
 }
 
-.contestant-winner {
-  background-color: var(--yellow) !important;
-  color: var(--red) !important;
-  font-weight: bold;
+.table.table-hover tbody tr:hover {
+    background-color: rgba(251, 185, 23, 0.08);
 }
 
-.contestant-second-winner {
-  color: var(--orange) !important;
-  font-weight: bold;
+/* Winner / runner-up emphasis */
+.contestant-winner,
+tr.contestant-winner td {
+    background-color: var(--yellow) !important;
+    color: var(--ink) !important;
+    font-weight: bold !important;
+}
+.contestant-winner td:first-child,
+.contestant-winner td:nth-child(2) {
+    color: var(--dark-red) !important;
 }
 
+.contestant-second-winner,
+tr.contestant-second-winner td {
+    color: var(--orange) !important;
+    font-weight: bold !important;
+}
+
+/* Contestant cards (used on wiki/nguyet-que-do.html) */
+.row.contestant {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    transition: border-color var(--t-base), transform var(--t-base);
+}
+.row.contestant:hover {
+    border-color: var(--yellow);
+    transform: translateY(-2px);
+}
+.contestant p { font-size: var(--fs-sm); margin: 0.25rem 0; }
+
+/* Final block */
 .final {
-  padding-bottom: 2rem;
+    padding-bottom: 2rem;
+}
+.final > div p { font-size: var(--fs-sm); }
+
+/* Photos inside wiki pages — gentle rounding + shadow */
+.qualifying img,
+.semifinal img,
+.final img {
+    border-radius: var(--r-md);
+    box-shadow: var(--sh-1);
+    transition: transform var(--t-base) var(--ease-out),
+                box-shadow var(--t-base) var(--ease-out);
 }
 
-.final > div p {
-  font-size: 0.8rem;
+.qualifying img:hover,
+.semifinal img:hover,
+.final img:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sh-2);
+}
+
+/* Horizontal rule between rounds becomes a soft accent */
+.qualifying + .horizontal-line-red,
+.semifinal + .horizontal-line-red,
+.container.qualifying ~ .horizontal-line-red {
+    width: 6rem;
+    height: 2px;
+    background: var(--yellow);
+    margin: 0 auto 0;
+    box-shadow: 0 0 12px rgba(251, 185, 23, 0.3);
+}
+
+@media (max-width: 991.98px) {
+    .container.qualifying,
+    .container.semifinal,
+    .container.final,
+    #wiki {
+        padding: 2rem 1rem;
+    }
+    .table.orange-border-table thead th,
+    .table.red-border-table thead th {
+        font-size: var(--fs-xs);
+        padding: 0.65rem 0.4rem;
+    }
+    .table.orange-border-table tbody td,
+    .table.red-border-table tbody td {
+        font-size: var(--fs-sm);
+        padding: 0.6rem 0.4rem;
+    }
 }

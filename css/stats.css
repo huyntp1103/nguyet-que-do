@@ -1,4 +1,111 @@
+/* =========================================================================
+   stats.css — full-bleed dark band with kim-cuong glow
+   See .claude/DESIGN.md §5.4.
+   ========================================================================= */
+
+#stats {
+    /* Break out of .container to become full-bleed */
+    width: 100vw;
+    max-width: none;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    background: linear-gradient(135deg, var(--ink) 0%, var(--deep-red) 100%);
+    color: white;
+    padding: 6rem 1.5rem;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+#stats::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(251, 185, 23, 0.14), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+#stats .section-title {
+    color: white;
+    font-size: var(--fs-3xl);
+    margin-bottom: 0.5rem;
+}
+
+#stats .horizontal-line-red {
+    background-color: var(--yellow);
+    box-shadow: 0 0 16px rgba(251, 185, 23, 0.5);
+}
+
+#stats .content-slide-up {
+    color: var(--on-dark-mute);
+    font-size: var(--fs-md);
+    margin-bottom: 1rem;
+    max-width: 38rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+}
+
+#stats .row {
+    margin-top: 4rem;
+    max-width: 1100px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    gap: 1rem 0;
+}
+
+#stats > .content-slide-up {
+    margin-top: 1rem;
+}
+
+/* Each stat column — yellow top rule, glowing icon, large numeral */
+#stats .row > div {
+    color: white !important; /* override the inline color="..." on individual columns */
+    padding: 2rem 1rem;
+    border-top: 2px solid var(--yellow);
+    margin-top: 1rem;
+    transition: transform var(--t-base) var(--ease-out);
+}
+
+#stats .row > div:hover {
+    transform: translateY(-4px);
+}
+
+#stats .row > div img {
+    filter: drop-shadow(0 0 22px rgba(251, 185, 23, 0.45));
+    transition: filter var(--t-base) var(--ease-out);
+}
+
+#stats .row > div:hover img {
+    filter: drop-shadow(0 0 32px rgba(251, 185, 23, 0.7));
+}
+
 #stats .row p {
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    color: var(--on-dark-mute) !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+#stats .stats-number {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 900;
+    color: white !important;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 40px rgba(251, 185, 23, 0.35);
+}
+
+@media (max-width: 991.98px) {
+    #stats { padding: 4.5rem 1.5rem; }
+    #stats .row > div { padding: 1.5rem 0.5rem; }
 }

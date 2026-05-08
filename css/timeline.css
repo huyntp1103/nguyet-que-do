@@ -1,18 +1,29 @@
+/* =========================================================================
+   timeline.css — alternating layout, refined year markers
+   ========================================================================= */
+
 #timeline {
     position: relative;
+    padding: 5rem 0 4rem;
+    max-width: 1100px;
+}
+
+#timeline > .section-title {
+    margin-bottom: 0.5rem;
 }
 
 #timeline:before {
     content: "";
     display: block;
-    width: 0.2rem;
-    height: calc(100% - 7rem);
-    background: var(--red);
+    width: 2px;
+    height: calc(100% - 9rem);
+    background: linear-gradient(to bottom, var(--red) 0%, var(--orange) 50%, var(--yellow) 100%);
     margin: 0 auto;
     position: absolute;
-    top: 7rem;
+    top: 8rem;
     left: 0;
     right: 0;
+    opacity: 0.7;
 }
 
 #timeline .timeline {
@@ -26,158 +37,150 @@
     clear: both;
 }
 
+/* Year marker — clean dot with year pill, not a heavy halo */
 #timeline .date-content {
     width: 50%;
     float: left;
-    margin-top: -1.6rem;
+    margin-top: -0.6rem;
     position: relative;
 }
 
 #timeline .date-content:before {
     content: "";
-    width: 32%;
-    height: 0.2rem;
-    background: var(--red);
+    width: calc(50% - 3.5rem);
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--orange) 40%);
     margin: auto 0;
     position: absolute;
     top: 0;
-    right: 0.5rem;
     bottom: 0;
+    right: 3.5rem;
 }
 
 #timeline .date-outer {
-    width: 6rem;
-    height: 6rem;
+    width: 7rem;
+    height: 7rem;
     text-align: center;
     margin: auto;
     z-index: 1;
+    position: relative;
+    background: var(--paper);
+    border: 2px solid var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 6px rgba(187, 33, 38, 0.08),
+                var(--sh-1);
+    transition: transform var(--t-base) var(--ease-out),
+                box-shadow var(--t-base) var(--ease-out),
+                border-color var(--t-base) var(--ease-out);
 }
 
-/* #timeline .date-outer:after {
-    content: "";
-    width: 8rem;
-    height: 6rem;
-    margin: 0 auto;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    border: 0.2rem solid black;
-} */
+#timeline .timeline:hover .date-outer {
+    transform: scale(1.05);
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 6px rgba(251, 185, 23, 0.18),
+                var(--sh-2);
+}
 
 #timeline .date {
-    width: 100%;
-    margin: auto;
-    position: absolute;
-    top: 35%;
-    left: 0;
+    width: auto;
+    margin: 0;
+    position: static;
 }
 
 #timeline .year {
     display: block;
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 0.82rem;
+    font-weight: 800;
     color: var(--red);
-    line-height: 1.4rem;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    padding: 0 0.3rem;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
 }
 
+#timeline .timeline:hover .year {
+    color: var(--dark-red);
+}
+
+/* Content card */
 #timeline .timeline-content {
     width: 50%;
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     float: right;
     position: relative;
-    top: -0.5rem;
+    top: -0.25rem;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    box-shadow: var(--sh-1);
+    margin-left: 1rem;
+    transition: transform var(--t-base) var(--ease-out),
+                border-color var(--t-base) var(--ease-out),
+                box-shadow var(--t-base) var(--ease-out);
+}
+
+#timeline .timeline-content:hover {
+    transform: translateY(-2px);
+    border-color: var(--yellow);
+    box-shadow: var(--sh-2);
 }
 
 #timeline .title {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: var(--fs-base);
+    line-height: 1.5;
+    margin-bottom: 0;
+    color: var(--ink-soft);
 }
 
-#timeline .timeline:nth-child(2n) .date-content {
-    float: right;
+#timeline .title strong {
+    color: var(--ink);
+    font-weight: bold;
 }
 
+/* Alternate side */
+#timeline .timeline:nth-child(2n) .date-content { float: right; }
 #timeline .timeline:nth-child(2n) .date-content:before {
-    left: 0.5rem;
+    left: 3.5rem;
+    right: auto;
+    background: linear-gradient(to left, transparent, var(--orange) 40%);
 }
-
 #timeline .timeline:nth-child(2n) .timeline-content {
-    padding: 1rem;
+    float: left;
+    padding: 1rem 1.25rem;
     text-align: right;
+    margin-left: 0;
+    margin-right: 1rem;
 }
 
 @media only screen and (max-width: 1199px) {
-    #timeline .date-content:before {
-        width: 28%;
-    }
-}
-
-@media only screen and (max-width: 991px) {
-    #timeline .date-content:before {
-        width: 24%;
-    }
+    #timeline .date-content:before { width: calc(50% - 3.25rem); }
 }
 
 @media only screen and (max-width: 767px) {
-    #timeline .timeline:last-child {
-        margin-bottom: 0;
-    }
+    #timeline { padding: 3rem 1rem; }
+    #timeline:before { display: none; }
+    #timeline .timeline { margin-bottom: 1.5rem; }
+    #timeline .timeline:last-child { margin-bottom: 0; }
 
     #timeline .date-content {
         width: 100%;
         margin-top: 0;
+        float: none !important;
     }
+    #timeline .date-content:before { display: none; }
 
-    #timeline .date-content:before,
-    #timeline:before {
-        display: none;
-    }
+    #timeline .date-outer { margin: 0 auto 0.75rem; }
 
     #timeline .timeline-content,
     #timeline .timeline:nth-child(2n) .timeline-content {
         width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        text-align: left;
+        padding: 1rem 1.25rem;
+        margin: 0;
+        float: none;
     }
-
-    #timeline .timeline-content .description-image {
-        width: auto;
-    }
-}
-
-@keyframes slideInFromLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInFromRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.slide-in-left {
-    animation: slideInFromLeft 1s forwards;
-}
-
-.slide-in-right {
-    animation: slideInFromRight 1s forwards;
 }
