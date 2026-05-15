@@ -1,80 +1,20 @@
-/* =========================================================================
-   footer.css — dark gradient with yellow accents, matching cinematic theme
-   ========================================================================= */
-
 #footer {
-    background:
-        linear-gradient(180deg, var(--deep-red) 0%, var(--ink) 100%),
-        url('../images/themes/Background-red.jpg');
-    background-blend-mode: multiply;
-    background-size: cover;
-    color: white;
-    padding: 5rem 0 3rem;
-    margin-bottom: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-#footer::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 100% 0%, rgba(251, 185, 23, 0.1), transparent 60%);
-    pointer-events: none;
-}
-
-#footer > .container { position: relative; z-index: 1; }
-
-#footer .horizontal-line-yellow {
-    margin: 1.25rem auto;
-    width: 4rem;
-    height: 2px;
-    background-color: var(--yellow);
-    box-shadow: 0 0 16px rgba(251, 185, 23, 0.4);
-}
-
-#footer p {
-    color: var(--on-dark);
-    font-size: var(--fs-base);
-    line-height: 1.65;
+	background-image: url('../images/themes/Background-red.jpg');
+	color: white;
 }
 
 #footer #contact-info p:first-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--yellow);
-    display: inline-block;
-    font-size: var(--fs-2xl);
-    font-weight: bold;
-    color: var(--yellow);
-    letter-spacing: -0.01em;
+	padding-bottom: 0.6rem;
+	margin-bottom: 1rem;
+	border-bottom: 0.2rem solid var(--yellow);
+	display: inline-block;
 }
 
 #footer .head-info {
-    font-size: var(--fs-base);
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
-    color: var(--on-dark);
+	font-size: 1rem;
 }
 
 #footer .head-info span:first-child {
-    color: var(--yellow);
-    font-weight: bold;
-    text-shadow: 0 0 12px rgba(251, 185, 23, 0.3);
-}
-
-#footer .head-info p {
-    color: var(--on-dark-mute);
-    font-size: var(--fs-sm);
-    margin-top: 0.25rem;
-}
-
-#footer iframe {
-    border-radius: var(--r-md);
-    box-shadow: var(--sh-3);
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-@media (max-width: 991.98px) {
-    #footer { padding: 3.5rem 0 2rem; }
+	color: var(--yellow);
+	font-weight: bold;
 }

@@ -1,134 +1,17 @@
-/* =========================================================================
-   humans.css — co-cau-nhan-su (org structure / departments page)
-   ========================================================================= */
-
-#structure {
-    background: transparent;
-    padding: 0 !important;
-    max-width: 1100px;
-    margin: 2rem auto 1rem;
+.department .row img {
+    border-radius: 10%;
 }
 
-#structure img {
-    border-radius: var(--r-md);
-    box-shadow: var(--sh-2);
-}
-
-/* Department blocks */
-.container.department {
-    max-width: 1100px;
-    padding: 3rem 1.5rem;
+.department .row button {
+    background-color: var(--yellow);
+    color: var(--red);
+    font-weight: bold;
+    border: none;
+    border-radius: 1rem;
     margin-bottom: 2rem;
 }
 
-.container.department .row {
-    align-items: center;
-}
-
-.department .section-title {
-    font-size: var(--fs-3xl);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-}
-
-/* Department photo — cinematic frame */
-.department .row > [class*="col"] img,
-.department .row img {
-    border-radius: var(--r-md);
-    border: 1px solid var(--border);
-    box-shadow: var(--sh-2);
-    transition: transform var(--t-base) var(--ease-out),
-                box-shadow var(--t-base) var(--ease-out);
-}
-
-.department .row img:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--sh-3);
-}
-
-/* Job/Requirement accordion buttons */
-.department .row button,
-.department .row .btn {
-    background-color: transparent;
-    color: var(--red);
-    font-weight: 600;
-    border: 1.5px solid var(--red);
-    border-radius: var(--r-pill);
-    padding: 0.55rem 1.4rem;
-    font-size: var(--fs-base);
-    letter-spacing: 0.02em;
-    margin: 0.75rem 0.4rem !important;
-    transition: background-color var(--t-base) var(--ease-out),
-                color var(--t-base) var(--ease-out),
-                border-color var(--t-base) var(--ease-out),
-                transform var(--t-base) var(--ease-out);
+.department .row button:hover {
+    text-decoration: underline;
     cursor: pointer;
-    box-shadow: none;
-}
-
-.department .row button:hover,
-.department .row .btn:hover {
-    background-color: var(--red);
-    color: white;
-    border-color: var(--red);
-    text-decoration: none;
-    transform: translateY(-1px);
-}
-
-.department .row button[aria-expanded="true"],
-.department .row .btn:not(.collapsed) {
-    background-color: var(--yellow);
-    color: var(--ink);
-    border-color: var(--yellow);
-}
-.department .row button[aria-expanded="true"]:hover,
-.department .row .btn:not(.collapsed):hover {
-    background-color: var(--dark-yellow);
-    border-color: var(--dark-yellow);
-}
-
-/* Accordion content */
-.department .row .collapse,
-.department .row .collapsing {
-    text-align: left;
-}
-
-.department .row .collapse ul,
-.department .row .collapsing ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0.5rem;
-}
-
-.department .row .collapse li,
-.department .row .collapsing li {
-    position: relative;
-    padding: 0.5rem 0 0.5rem 1.5rem;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    font-size: var(--fs-base);
-    border-bottom: 1px solid var(--border);
-}
-
-.department .row .collapse li:last-child,
-.department .row .collapsing li:last-child {
-    border-bottom: none;
-}
-
-.department .row .collapse li::before,
-.department .row .collapsing li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 1rem;
-    width: 0.5rem;
-    height: 0.5rem;
-    background: var(--yellow);
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(251, 185, 23, 0.4);
-}
-
-@media (max-width: 991.98px) {
-    .container.department { padding: 2rem 1rem; }
-    .department .row > [class*="col"] { margin-bottom: 1.5rem; }
 }

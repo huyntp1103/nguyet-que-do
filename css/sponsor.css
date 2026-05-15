@@ -1,80 +1,24 @@
-/* =========================================================================
-   sponsor.css — dark cinematic band, white logo tiles
-   See .claude/DESIGN.md §5.6.
-
-   Logos are kept on white tiles (works for any logo format —
-   transparent PNG, JPG with white bg, multi-color, etc.). The cinematic
-   feel comes from the dark gradient band around them.
-   ========================================================================= */
-
 #sponsor-wrapped {
-    background: linear-gradient(180deg, var(--ink) 0%, var(--deep-red) 100%);
-    padding: 5rem 0 4rem;
-    margin-bottom: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-#sponsor-wrapped::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 100%, rgba(251, 185, 23, 0.1), transparent 60%);
-    pointer-events: none;
-}
-
-#sponsor-wrapped .container,
-#sponsor-wrapped .mb-5,
-#sponsor-wrapped #sponsor {
-    position: relative;
-    z-index: 1;
+	background-color: black;
+	padding-bottom: 2rem;
 }
 
 #sponsor-wrapped .sponsor-introdution {
-    color: var(--on-dark);
-    font-size: var(--fs-lg);
-    font-weight: 600;
-    margin: 0;
-    letter-spacing: 0.02em;
+	color: white;
+	font-size: 1.6rem;
+	margin: 0;
 }
 
-#sponsor-wrapped .sponsor-introdution + .sponsor-introdution {
-    color: var(--yellow) !important;
-    text-shadow: 0 0 24px rgba(251, 185, 23, 0.4);
-    margin-top: 0.4rem;
-}
-
-/* Sponsor row carousels */
-#sponsor .owl-carousel { padding: 0.5rem 0; }
-
-/* White tile — works for any logo format */
 #sponsor .sponsor-logo {
-    width: 100%;
-    background-color: var(--paper);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: var(--r-md);
-    aspect-ratio: 1 / 1;
-    transition: border-color var(--t-base) var(--ease-out),
-                transform var(--t-base) var(--ease-out),
-                box-shadow var(--t-base) var(--ease-out);
-}
-
-#sponsor .sponsor-logo:hover {
-    border-color: var(--yellow);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.5),
-                0 0 24px rgba(251, 185, 23, 0.15);
+	width: 100%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 1rem;
+	aspect-ratio: 1/1;
 }
 
 #sponsor .sponsor-logo img {
-    width: 80%;
-    max-height: 80%;
-    object-fit: contain;
+	width: 80%;
 }
-
-/* Hide Owl nav arrows / dots — autoplay is enough */
-#sponsor .owl-nav,
-#sponsor .owl-dots { display: none !important; }

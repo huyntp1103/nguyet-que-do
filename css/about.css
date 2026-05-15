@@ -1,69 +1,24 @@
-/* =========================================================================
-   about.css — "Về chúng tôi" — warm dark band with editorial cards
-   ========================================================================= */
-
 #about-nqd {
-    border-radius: 0;
-    background:
-        linear-gradient(135deg, var(--deep-red) 0%, var(--ink) 100%),
-        url('../images/themes/Background-red.jpg');
-    background-blend-mode: multiply;
-    background-size: cover;
-    color: white;
-    padding: 6rem 0 5rem;
-    margin-bottom: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-#about-nqd::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 90% 10%, rgba(251, 185, 23, 0.12), transparent 55%);
-    pointer-events: none;
-}
-
-#about-nqd #about-nqd-inner {
-    position: relative;
-    z-index: 1;
+	border-radius: 0;
+	background-image: url('../images/themes/Background-red.jpg');
+	color: white;
+	padding-bottom: 1rem;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 #about-nqd #since {
     color: var(--yellow);
     font-weight: bold;
-    font-size: 1.4rem;
-    letter-spacing: 0.25em;
-    margin-top: 0.5rem;
-    text-transform: uppercase;
-}
-
-#about-nqd .horizontal-line-yellow {
-    width: 4rem;
-    margin: 1rem auto;
-    background-color: var(--yellow);
-    box-shadow: 0 0 20px rgba(251, 185, 23, 0.4);
+    font-size: 1.8rem;
 }
 
 #about-nqd .content-box {
-    text-align: justify;
-    font-size: var(--fs-md);
-    line-height: 1.65;
-    color: var(--on-dark);
+	text-align: justify;
+	font-size: 1rem;
 }
 
 #about-nqd .about-image {
-    border-radius: var(--r-md);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: var(--sh-3);
-    transition: transform var(--t-base) var(--ease-out);
-}
-
-#about-nqd .about-image:hover {
-    transform: translateY(-4px);
-}
-
-@media (max-width: 991.98px) {
-    #about-nqd { padding: 4rem 0 3rem; }
-    #about-nqd .row { gap: 2rem 0; }
+	border-radius: 10%;
+	border: 0.1rem solid white;
 }
