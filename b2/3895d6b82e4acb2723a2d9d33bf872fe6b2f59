@@ -1,0 +1,22 @@
+css/navbar.css
+  h_bb816bbb3e9489 27
+components/navbar.html
+  h_bb816bbb3e9489 77-79
+wiki/nguyet-que-do-viii.html
+  h_bb816bbb3e9489 1-522
+components/footer.html
+  h_bb816bbb3e9489 18,20-21,26,28-29,34,36-37
+wiki/nguyet-que-do.html
+  h_bb816bbb3e9489 56,140-143,161-166,203-208,269-280,297,370,384-389,466-471,532,534,543-546,549-550,552,560-565,596-601,608-613,622-624,631-636
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "b23895d6b82e4acb2723a2d9d33bf872fe6b2f59",
+  "prompts": {},
+  "humans": {
+    "h_bb816bbb3e9489": {
+      "author": "Nhat Huy Nguyen <huynguyennhat@everfit.io>"
+    }
+  }
+}
